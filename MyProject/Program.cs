@@ -6,175 +6,128 @@ public class Program
     public static void Main(string[] args)
     {
 
-
-        //login authentication
-        Console.Write("username: ");
-        string username = Console.ReadLine();
-
-        Console.Write("password: ");
-        string password = Console.ReadLine();
-
-        if (username == "correctusername" && password == "correctpassword")
-            Console.WriteLine("Login Successful!");
-        else
-            Console.WriteLine("Invalid credentials!");
-
-        // grade calculator
-        Console.Write("Enter the grade: ");
-        int grade = int.Parse(Console.ReadLine());
-
-        if (grade >= 90)
-            Console.WriteLine("Grade: A+");
-        else if (grade >= 80)
-            Console.WriteLine("Grade: A");
-        else if (grade >= 70)
-            Console.WriteLine("Grade: B");
-        else
-            Console.WriteLine("Grade: C or below");
-
-        // discount calculation
-        Console.Write("Enter amount: ");
-        double amount = double.Parse(Console.ReadLine());
-
-        double discount;
-        if (amount > 1000)
+        //Output: 1 2 3 4 5 6 7 8 9 10
+        Console.WriteLine("printing numbers 1-10:");
+        for (int i = 1; i <= 10; i++)
         {
-            discount = amount * 0.10;
+            Console.Write(i + " ");
         }
-        else
+        Console.WriteLine("\n");
+
+        //Output: "Sum = 5050"
+        Console.WriteLine("sum of numbers 1-100");
+        int sum = 0;
+        for (int i = 1; i <= 100; i++)
         {
-            discount = amount * 0.05;
+            sum += i;
         }
-        Console.WriteLine("Discount: " + discount);
+        Console.WriteLine("Sum = " + sum);
+        Console.WriteLine("\n");
 
-        // day of the Week
-        Console.Write("Enter day number: ");
-        int day = int.Parse(Console.ReadLine());
 
-        string res = day switch
+        //Output: 1 3 5 7 ... 19
+        Console.WriteLine("odd Numbers 1–20");
+        for (int i = 1; i <= 20; i++)
         {
-            1 => "Monday",
-            2 => "Tuesday",
-            3 => "Wednesday",
-            4 => "Thursday",
-            5 => "Friday",
-            6 => "Saturday",
-            7 => "Sunday",
-            _ => "Invalid"
-        };
-        Console.WriteLine(res);
-
-        // traffic light system
-        Console.Write("what is the signal color: ");
-        string signal = Console.ReadLine().ToLower();
-
-        switch (signal)
-        {
-            case "red":
-                Console.WriteLine("Stop!");
-                break;
-            case "yellow":
-                Console.WriteLine("Get Ready!");
-                break;
-            case "green":
-                Console.WriteLine("Go!");
-                break;
-            default:
-                Console.WriteLine("Invalid signal");
-                break;
-        }
-
-        // atm withdrawal
-        Console.Write("Enter balance: ");
-        double balance = double.Parse(Console.ReadLine());
-
-        Console.Write("Enter withdrawal amount: ");
-        double withdrawal = double.Parse(Console.ReadLine());
-
-        if (withdrawal <= 0)
-            Console.WriteLine("Invalid withdrawal amount");
-        else if (withdrawal > balance)
-            Console.WriteLine("Insufficient balance");
-        else
-        {
-            balance -= withdrawal;
-            Console.WriteLine($"Withdrawal successful! Remaining balance: {balance}");
-        }
-
-        // pass or fail Result
-        Console.Write("Enter score: ");
-        int score = int.Parse(Console.ReadLine());
-
-        if (score >= 50)
-            Console.WriteLine("Pass");
-        else
-            Console.WriteLine("Fail");
-
-        // calculator
-        Console.Write("Enter first number: ");
-        double a = double.Parse(Console.ReadLine());
-
-        Console.Write("Enter operator:");
-        string operation = Console.ReadLine();
-
-        Console.Write("Enter second number: ");
-        double b = double.Parse(Console.ReadLine());
-
-        double calcResult;
-
-        switch (operation)
-        {
-            case "+":
-                calcResult = a + b;
-                break;
-            case "-":
-                calcResult = a - b;
-                break;
-            case "*":
-                calcResult = a * b;
-                break;
-            case "/":
-                if (b == 0)
-                {
-                    Console.WriteLine("Can't divide by zero");
-                    return;
+            if (i % 2 == 1)
+            {
+                Console.WriteLine(i);
                 }
-                calcResult = a / b;
-                break;
-            default:
-                Console.WriteLine("Invalid operator");
-                return;
         }
+        Console.WriteLine("\n");
 
-        Console.WriteLine("Result: " + calcResult);
+        // multiplication table for 5
+        Console.WriteLine("multiplication Table for n = 5");
+        int n = 5;
+        for (int i = 1; i <= 9; i++)
+        {
+            Console.WriteLine($"{n} x {i} = {n * i}");
+        }
+        Console.WriteLine("\n");
 
-        // voting Eligibility
-        Console.Write("Enter age: ");
-        int age = int.Parse(Console.ReadLine());
+        //Output: 10 9 8 ... 1
+        Console.WriteLine("reverse printing of numbers 10–1");
+        for (int i = 10; i >= 1; i--)
+        {
+            Console.Write(i + " ");
+        }
+        Console.WriteLine("\n");
 
-        if (age < 0)
-            Console.WriteLine("Invalid age");
-        else if (age >= 18)
-            Console.WriteLine("Eligible to vote");
+        //factorial for 5
+        Console.WriteLine("factorial of 5");
+        int factorial = 1;
+        for (int i = 1; i <= 5; i++)
+        {
+            factorial *= i;
+        }
+        Console.WriteLine("Factorial = " + factorial);
+        Console.WriteLine("\n");
+
+
+        //Output: "**********"
+        Console.WriteLine("write '*' 10 times");
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write("*");
+        }
+        Console.WriteLine("\n");
+
+        //Output: "Sum = 55"
+        Console.WriteLine("while Loop – Sum Until ≥ 50");
+        sum = 0;
+        int j = 1;
+        while (sum < 50)
+        {
+            sum += j;
+            j++;
+        }
+        Console.WriteLine("Sum = " + sum + "\n");
+
+        //Output: "Enter password: ... Correct!"
+        Console.WriteLine("Do-While Password Check (password = 1234)");
+        string password;
+        do
+        {
+            Console.Write("Enter password: ");
+            password = Console.ReadLine();
+        } while (password != "1234");
+        Console.WriteLine("Correct!\n");
+
+        //palindrome
+        Console.WriteLine("Palindrome Check");
+        int number = 121;
+        int original = number;
+        int reversed = 0;
+        while (number > 0)
+        {
+            int digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+        if (original == reversed)
+            Console.WriteLine($"{original} is Palindrome\n");
         else
-            Console.WriteLine("Not eligible to vote");
+            Console.WriteLine($"{original} is Not Palindrome\n");
 
-        // employee bonus Calculation
-        Console.Write("Enter role (Manager/Developer): ");
-        string role = Console.ReadLine();
+        //fibonachi
+        Console.WriteLine("Fibonachi Sequence (first 7 numbers)");
+        int fibonachiN = 7;
+        int a = 0, b = 1;
+        for (int i = 0; i < fibonachiN; i++)
+        {
+            Console.Write(a + " ");
+            int temp = a + b;
+            a = b;
+            b = temp;
+        }
+        Console.WriteLine();
 
-        Console.Write("Enter salary: ");
-        double salary = double.Parse(Console.ReadLine());
-
-        double bonus;
-
-        if (role.ToLower() == "manager")
-            bonus = salary > 2500 ? salary * 0.15 : salary * 0.10;
-        else if (role.ToLower() == "developer")
-            bonus = salary > 2000 ? salary * 0.12 : salary * 0.08;
-        else
-            bonus = salary * 0.05;
-
-        Console.WriteLine("Bonus: " + bonus);
     }
+
+
+
+
+
+
+
 }
